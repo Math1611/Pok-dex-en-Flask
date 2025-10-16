@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Error 404 - Pokémon No Encontrado</title>
+</head>
+<body>
+    <div class="error-container">
+        <h1>404 - Pokémon No Encontrado</h1>
+        <p>{{ mensaje }}</p>
+        <a href="{{ url_for('mostrar_pokemon') }}">Volver a la lista de Pokémon</a>
+    </div>
+</body>
+</html>

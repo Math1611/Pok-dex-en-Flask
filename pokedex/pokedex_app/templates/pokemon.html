@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Pokedex</title>
+</head>
+<body>
+    <h1>Lista de Pokémon</h1>
+    <div class="pokemon-list">
+        {% for pokemon in pokedex %}
+            <div class="pokemon">
+
+                {% if pokemon.imagen and pokemon.imagen.startswith('images/') %}
+                    <img src="{{ url_for('static', filename=pokemon.imagen) }}" alt="{{ pokemon.nombre }}">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/' ~ pokemon.imagen) }}" alt="{{ pokemon.nombre }}">
+                {% endif %}
+                <h2>
+                    {{ pokemon.nombre }}
+                </h2>
+
+                <p>Tipo: {{ pokemon.tipo }}</p>
+                <p>Poder: {{ pokemon.poder }}</p>
+                <p>Altura: {{ pokemon.altura }}</p>
+                <p>Peso: {{ pokemon.peso }}</p>
+
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
